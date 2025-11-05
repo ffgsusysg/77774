@@ -1,4 +1,3 @@
-// netlify/edge-functions/hls-proxy.ts
 // HLS Proxy on Netlify Edge Functions
 // يعالج ملفات M3U8 ويعيد كتابة روابط TS لتعمل عبر /proxy_ts
 
@@ -16,7 +15,8 @@ export default async (request: Request, context: any) => {
       return await handleM3u8Request(url);
     }
   } catch (err: any) {
-    return new Response(خطأ في المعالجة: ${err.message}, {
+    // تم التعديل: استخدام concatenation بدلاً من template literal مع الأحرف العربية لتجنب خطأ التجميع
+    return new Response("خطأ في المعالجة: " + err.message, { 
       status: 500,
       headers: { "Access-Control-Allow-Origin": "*" },
     });
@@ -59,7 +59,7 @@ async function handleM3u8Request(url: URL): Promise<Response> {
   // لو فشل نحاول جودات أخرى
   const qualities = ["1080p", "720p", "480p", "360p"];
   for (const q of qualities) {
-    const fallback = ${ORIGIN_CDN}/${videoId}/${q}/video.m3u8;
+    const fallback = `${ORIGIN_CDN}/${videoId}/${q}/video.m3u8`;
     const res = await fetchM3u8(fallback, videoId, url.origin);
     if (res) return res;
   }
@@ -91,14 +91,14 @@ async function fetchM3u8(m3u8Url: string, videoId: string, origin: string): Prom
 
     // إعادة كتابة روابط TS
     content = content.replace(/^(.+\.ts)$/gm, (m) => {
-      const tsPath = ${qualityPath}/${m};
-      return ${origin}/proxy_ts?videoId=${videoId}&ts=${encodeURIComponent(tsPath)};
+      const tsPath = `${qualityPath}/${m}`;
+      return `${origin}/proxy_ts?videoId=${videoId}&ts=${encodeURIComponent(tsPath)}`;
     });
 
     // إعادة كتابة روابط M3U8 الداخلية (للجودات الأخرى)
     content = content.replace(/^(.+\.m3u8)$/gm, (m) => {
       const full = m3u8Url.substring(0, m3u8Url.lastIndexOf("/")) + "/" + m;
-      return ${origin}/?videoUrl=${encodeURIComponent(full)};
+      return `${origin}/?videoUrl=${encodeURIComponent(full)}`;
     });
 
     return new Response(content, {
@@ -125,7 +125,7 @@ async function handleTsProxy(url: URL): Promise<Response> {
   }
 
   const tsPath = decodeURIComponent(tsFile);
-  const tsUrl = ${ORIGIN_CDN}/${videoId}/${tsPath};
+  const tsUrl = `${ORIGIN_CDN}/${videoId}/${tsPath}`;
 
   try {
     const res = await fetch(tsUrl, {
@@ -145,6 +145,7 @@ async function handleTsProxy(url: URL): Promise<Response> {
     headers.set("Access-Control-Allow-Origin", "*");
     return new Response(res.body, { status: res.status, headers });
   } catch (err: any) {
-    return new Response(خطأ في جلب TS: ${err.message}, { status: 500 });
+    // تم التعديل: استخدام concatenation بدلاً من template literal مع الأحرف العربية لتجنب خطأ التجميع
+    return new Response("خطأ في جلب TS: " + err.message, { status: 500 });
   }
 }
